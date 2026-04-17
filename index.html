@@ -17,12 +17,23 @@
                     <i class="fas fa-heartbeat"></i>
                     <span>HomeCare Connect</span>
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#doctors">Doctors</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="mobile-auth">
+    <button class="btn btn-outline" id="loginBtnMobile">
+        <i class="fas fa-sign-in-alt"></i> Login
+    </button>
+</li>
+
+<li class="mobile-auth">
+    <button class="btn btn-primary" id="registerBtnMobile">
+        <i class="fas fa-user-plus"></i> Register
+    </button>
+</li>
                 </ul>
                 <div class="nav-toggle" id="mobile-menu">
                     <span class="bar"></span>
@@ -30,8 +41,47 @@
                     <span class="bar"></span>
                 </div>
                 <div class="header-buttons">
-                    <button class="btn btn-outline" onclick="openModal('patientModal')">Book Now</button>
-                    <button class="btn btn-primary" onclick="openModal('doctorModal')">Join as Doctor</button>
+                    <!-- هنااا -->
+                            <button class="btn btn-outline login-btn" id="loginBtn" >
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p id="loginMessage" class="message hidden"></p>
+        </form>
+    </div>
+</div>
+                    <button class="btn btn-primary register-btn" id="registerBtn" >
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                    <div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="regName" placeholder="Name" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="tel" id="regPhone" placeholder="Phone" required>
+            <input type="password" id="regPassword" placeholder="Password" required>
+            <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <p id="registerMessage" class="message hidden"></p>
+        </form>
+    </div>
+</div>
+                    <!-- User Profile After Login -->
+                    <div class="user-profile hidden" id="userProfile">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userNameDisplay">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                     <!-- اخر -->
                 </div>
             </div>
         </nav>
@@ -44,10 +94,10 @@
                 <h1>Healthcare at Your Doorstep</h1>
                 <p>Professional doctors visit you at home. No waiting rooms, no travel stress. Quality care, convenience guaranteed.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary btn-large" onclick="openModal('patientModal')">
+                    <button class="btn btn-primary btn-large" >
                         <i class="fas fa-calendar-check"></i> Book Appointment
                     </button>
-                    <button class="btn btn-outline btn-large" onclick="scrollToSection('services')">
+                    <button class="btn btn-outline btn-large"  >
                         <i class="fas fa-stethoscope"></i> Our Services
                     </button>
                 </div>
@@ -57,7 +107,6 @@
             </div>
         </div>
     </section>
-
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
@@ -209,7 +258,7 @@
                         <li><i class="fas fa-check-circle"></i> Affordable pricing</li>
                         <li><i class="fas fa-check-circle"></i> Secure payments</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="openModal('patientModal')">Get Started Today</button>
+                    <button class="btn btn-primary">Get Started Today</button>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About us">
@@ -305,7 +354,7 @@
     <!-- Patient Booking Modal -->
     <div id="patientModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('patientModal')">&times;</span>
+            <span class="close" >&times;</span>
             <h2>Book Appointment</h2>
             <form class="booking-form">
                 <div class="form-group">
@@ -341,40 +390,6 @@
         </div>
     </div>
 
-    <!-- Doctor Registration Modal -->
-    <div id="doctorModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('doctorModal')">&times;</span>
-            <h2>Join as Doctor</h2>
-            <form class="booking-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Specialty</label>
-                        <input type="text" placeholder="e.g. General Physician" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>License Number</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Experience (Years)</label>
-                    <input type="number" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Apply Now</button>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
